@@ -12,7 +12,22 @@ class StudentController extends Controller
     public function index()
     {
         // dd('students index');
-        return view('student.index');
+        $data = [
+            [
+                'id' => 1,
+                'name' => 'amy',
+            ],
+            [
+                'id' => 2,
+                'name' => 'bob',
+            ],
+            [
+                'id' => 3,
+                'name' => 'cat',
+            ]
+        ];
+
+        return view('student.index',['data' => $data]);
     }
 
     /**
