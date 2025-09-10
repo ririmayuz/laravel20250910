@@ -70,4 +70,24 @@ class StudentController extends Controller
         dd('students excel');
         // return view('student.excel');
     }
+
+    public function test()
+    {
+        $data = 'test ok';
+        $data = [
+            [
+                'id' => 1,
+                'name' => 'amy',
+            ],
+            [
+                'id' => 2,
+                'name' => 'bob',
+            ],
+            [
+                'id' => 3,
+                'name' => 'cat',
+            ]
+        ];
+        return view('student.test', ['data' => $data]);
+    }
 }
