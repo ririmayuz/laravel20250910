@@ -21,6 +21,7 @@
             ?>
             {{-- <a href="http://localhost/students/create" class="btn btn-primary">新增</a> --}}
             <a href="{{route('students.create')}}" class="btn btn-primary">新增</a>
+            <a href="{{route('students.create')}}" class="btn btn-info">excel</a>
 
         </div>
         <table class="table table-striped">
