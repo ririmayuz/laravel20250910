@@ -105,4 +105,30 @@ class StudentController extends Controller
         ];
         return view('student.test', ['data' => $data]);
     }
+
+    public function child()
+    {
+        // dd('students child');
+        return view('student.child');
+    }
+
+    //front
+    public function html()
+    {
+        // dd('students html');
+        return view('page.html');
+    }
+    public function js()
+    {
+        return view('page.js');
+    }
+    //end
+    public function php()
+    {
+        return view('page.php');
+    }
+    public function python()
+    {
+        return view('page.python');
+    }
 }
