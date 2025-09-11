@@ -27,8 +27,16 @@ class StudentController extends Controller
         //         'name' => 'cat',
         //     ]
         // ];
-        $data = DB::select('select * from students');
-        // dd($data);
+
+        //原生 SQL
+        // $data = DB::select('select * from students');
+
+        // get()   feachAll 多筆 array foreach
+        // first() feach 單筆
+        // $data = DB::table('students')->get(); // Query Builder
+        $data = DB::table('students')->where('id', 1)->get();
+        dd($data);
+
         return view('student.index',['data' => $data]);
     }
 
