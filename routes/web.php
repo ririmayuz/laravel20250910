@@ -11,6 +11,7 @@ Route::get('/students_child', [StudentController::class, 'child']);
 
 Route::get('/pages_html', [StudentController::class, 'html'])->name('pages.html');
 Route::get('/pages_js', [StudentController::class, 'js'])->name('pages.js');
+// Route::get('/pages_js', [StudentController::class, 'js']);
 Route::get('/pages_php', [StudentController::class, 'php']);
 Route::get('/pages_python', [StudentController::class, 'python']);
 

@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container mt-3">
-        <h2>HTML Table</h2>
+        <h2>HTML Table 老師示範練習</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
         <table class="table table-bordered">
             <thead>

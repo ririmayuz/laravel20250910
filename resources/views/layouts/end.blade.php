@@ -12,6 +12,7 @@
 </style>
 
 <body>
+    {{-- 自己做的 --}}
     @section('sidebar')
         This is the master sidebar.
     @show
