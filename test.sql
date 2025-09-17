@@ -31,3 +31,33 @@ DELETE FROM
     students
 WHERE
     `students`.`id` = 5
+
+
+CREATE TABLE `laravel_20250917`.`students` (
+    `id` INT(10) NULL AUTO_INCREMENT COMMENT 'id',
+    `name` VARCHAR(20) NULL COMMENT '姓名',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `laravel_0910`.`cars` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR NULL DEFAULT '' COMMENT '姓名',
+    `color` INT NULL DEFAULT '0' COMMENT 'color 代號',
+    `date` DATETIME NULL DEFAULT '2020-01-01' COMMENT '出廠日期',,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `laravel_0910`.`cars` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR NULL DEFAULT '' COMMENT '姓名',
+    `name` VARCHAR NULL DEFAULT '' COMMENT '姓名',
+    `name` VARCHAR NULL DEFAULT '' COMMENT '姓名',
+    `name` VARCHAR NULL DEFAULT '' COMMENT '姓名',
+    `color` VA NULL DEFAULT '0' COMMENT 'color 代號',
+    `color` VA NULL DEFAULT '0' COMMENT 'color 代號',
+    `color` VA NULL DEFAULT '0' COMMENT 'color 代號',
+    `date` VATETIME NULL DEFAULT '2020-01-01' COMMENT '出廠日期',
+    `date` VATETIME NULL DEFAULT '2020-01-01' COMMENT '出廠日期',
+    `date` VATETIME NULL DEFAULT '2020-01-01' COMMENT '出廠日期',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
