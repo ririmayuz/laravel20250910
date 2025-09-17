@@ -7,10 +7,12 @@
     <body>
         @section('sidebar')
             This is the master sidebar.
+            (👉ﾟヮﾟ)👉
         @show
 
         <div class="container">
             @yield('content')
+            oh wow👈(ﾟヮﾟ👈)
         </div>
     </body>
 </html>
