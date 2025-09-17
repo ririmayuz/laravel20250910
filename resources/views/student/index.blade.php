@@ -14,6 +14,9 @@
     <div class="container mt-3">
         <h2>學生資料總表</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <div class="text-end mb-3">
+            <a class="btn btn-success" href="{{ route('students.create') }}">新增</a>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -23,31 +26,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>amy</td>
-                    <td>
-                        <a class="btn btn-info">新增</a>
-                        <a class="btn btn-secondary">刪除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>amy</td>
-                    <td>
-                        <a class="btn btn-info">新增</a>
-                        <a class="btn btn-secondary">刪除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>amy</td>
-                    <td>
-                        <a class="btn btn-info">新增</a>
-                        <a class="btn btn-secondary">刪除</a>
-                    </td>
-                </tr>
-                
+                @foreach ($data as $value)
+                    <tr>
+                        <td>{{ $value->id }}</td>
+                        <td>{{ $value->name }}</td>
+                        <td>
+                            <a class="btn btn-warning"
+                                href="{{ route('students.edit', ['student' => $value->id]) }}">修改</a>
+                            <a class="btn btn-danger">刪除</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

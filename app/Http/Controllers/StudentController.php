@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -12,22 +13,6 @@ class StudentController extends Controller
      */
     public function index()
     {
-        // dd('students index');
-        // $data = [
-        //     [
-        //         'id' => 1,
-        //         'name' => 'amy',
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'name' => 'bob',
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'name' => 'cat',
-        //     ]
-        // ];
-
         //原生 SQL
         // $data = DB::select('select * from students');
 
@@ -37,8 +22,9 @@ class StudentController extends Controller
         // $data = DB::table('students')->where('id', 1)->get();
         // dd($data);
 
-        // return view('student.index',['data' => $data]);
-        return view('student.index');
+        $data = Student::all();
+        // dd($data);
+        return view('student.index',['data' => $data]);
     }
 
     /**
@@ -55,7 +41,18 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 這兩行效果一樣
+        // $input = $request->all();
+        $input = $request->except('_token');
+        // dd($input);
+        $data = new Student;
+ 
+        $data->name = $input['name'];
+ 
+        $data->save();
+ 
+        // return redirect('/students');
+        return redirect()->route('students.index');
     }
 
     /**
@@ -71,8 +68,13 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        // dd('students edit');
-        return view('student.edit', ['id' => $id]);
+        // dd("students id = $id edit ok");
+        // $data = [
+        //     'id' => $id
+        // ];
+        $data = Student::find($id);
+        // dd($data);
+        return view('student.edit', ['data' => $data]);
     }
 
     /**
@@ -80,7 +82,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd('update ok');
+        // dd($data);
+
+        // form input       
+        $input = $request->except('_token');
+
+        // 抓id 單筆資料
+        $data = Student::find($id);
+        $data->name = $input['name'];
+        $data->save();
+
+        return redirect()->route('students.index');
     }
 
     /**
