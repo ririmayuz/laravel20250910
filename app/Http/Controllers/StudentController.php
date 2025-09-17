@@ -34,10 +34,11 @@ class StudentController extends Controller
         // get()   feachAll 多筆 array foreach
         // first() feach 單筆
         // $data = DB::table('students')->get(); // Query Builder
-        $data = DB::table('students')->where('id', 1)->get();
-        dd($data);
+        // $data = DB::table('students')->where('id', 1)->get();
+        // dd($data);
 
-        return view('student.index',['data' => $data]);
+        // return view('student.index',['data' => $data]);
+        return view('student.index');
     }
 
     /**

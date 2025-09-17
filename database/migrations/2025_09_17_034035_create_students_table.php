@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('')->comment('姓名');
-            $table->integer('color')->default(0)->comment('顏色代號');
-            $table->dateTime('year')->default('2020-01-01')->comment('出廠日期');
+            // $table->integer('color')->default(0)->comment('顏色代號');
+            // $table->dateTime('year')->default('2020-01-01')->comment('出廠日期');
             $table->timestamps();
         });
     }
