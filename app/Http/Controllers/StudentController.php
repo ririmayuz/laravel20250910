@@ -22,8 +22,10 @@ class StudentController extends Controller
         // $data = DB::table('students')->where('id', 1)->get();
         // dd($data);
 
-        $data = Student::all();
+        // $data = Student::all();
+        // $data = Student::get();
         // dd($data);
+        $data = Student::with('phoneRelation')->get();
         return view('student.index',['data' => $data]);
     }
 

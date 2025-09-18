@@ -64,3 +64,32 @@ INSERT INTO
 VALUES
     (NULL, 'bob', NULL, NULL),
     (NULL, 'cat', NULL, NULL);
+
+SELECT
+    ProductID,
+    ProductName,
+    CategoryName
+FROM
+    Products
+    INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+
+SELECT
+    students.id,
+    students.name,
+    phones.phone
+FROM
+    students
+    LEFT JOIN phones ON students.id = phones.student_id;
+
+INSERT INTO
+    `phones` (
+        `id`,
+        `student_id`,
+        `phone`,
+        `created_at`,
+        `updated_at`
+    )
+VALUES
+    (NULL, '1', '0911', NULL, NULL),
+    (NULL, '2', '0922', NULL, NULL),
+    (NULL, '3', '0933', NULL, NULL)
