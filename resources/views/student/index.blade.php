@@ -31,9 +31,16 @@
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->name }}</td>
                         <td>
-                            <a class="btn btn-warning"
-                                href="{{ route('students.edit', ['student' => $value->id]) }}">修改</a>
-                            <a class="btn btn-danger">刪除</a>
+                            <form action="{{ route('students.destroy', ['student' => $value->id]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <a class="btn btn-info"
+                                    href="{{ route('students.edit', ['student' => $value->id]) }}">修改</a>
+                                <button type="submit" class="btn btn-secondary">刪除</button>
+                            </form>
+                             {{-- <a class="btn btn-danger"
+                                href="">del</a> --}}
+                            {{-- <a class="btn btn-danger">delete</a> --}}
                         </td>
                     </tr>
                 @endforeach
