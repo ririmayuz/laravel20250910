@@ -15,6 +15,7 @@
         <h2>學生資料總表</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
         <div class="text-end mb-3">
+            <a class="btn btn-warning" href="{{ route('students.excel') }}">excel</a>
             <a class="btn btn-success" href="{{ route('students.create') }}">新增</a>
         </div>
         <table class="table table-bordered">
