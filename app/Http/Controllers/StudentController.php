@@ -46,6 +46,7 @@ class StudentController extends Controller
     {
         // 這兩行效果一樣
         // $input = $request->all();
+        // $input = $request->get();
 
         // array:2 [▼ // app\Http\Controllers\StudentController.php:50
         // "name" => "水餃"
@@ -54,7 +55,7 @@ class StudentController extends Controller
         $input = $request->except('_token');
         // dd($input);
 
-        //主表(注意:要存檔才會有id)
+        // 主表(注意:要存檔才會有id)
         $data = new Student;
         $data->name = $input['name'];
         $data->save();
