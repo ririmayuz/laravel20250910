@@ -87,7 +87,7 @@ class StudentController extends Controller
         // $data = [
         //     'id' => $id
         // ];
-        $data = Student::find($id);
+        $data = Student::with('phoneRelation')->find($id);
         // dd($data);
         return view('student.edit', ['data' => $data]);
     }
@@ -100,13 +100,27 @@ class StudentController extends Controller
         // dd('update ok');
         // dd($data);
 
-        // form input       
-        $input = $request->except('_token');
+        //   array:2 [▼ // app\Http\Controllers\StudentController.php:99
+        //   "name" => "dog"
+        //   "phone" => "123"
+        // ]
 
-        // 抓id 單筆資料
+        // form input       
+        $input = $request->except('_token', '_method');
+
+        // 抓主表資料
         $data = Student::find($id);
         $data->name = $input['name'];
         $data->save();
+
+        // 刪除子表
+        Phone::where('student_id', $id)->delete();
+
+        // 新增子表
+        $dataPhone = new Phone;
+        $dataPhone->student_id = $data->id;
+        $dataPhone->phone = $input['phone'];
+        $dataPhone->save();
 
         return redirect()->route('students.index');
     }
@@ -117,8 +131,13 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         // dd("students destroy ok $id");
-        $data = Student::find($id);
-        $data->delete();
+
+        // 先刪除子表
+        Phone::where('student_id', $id)->delete();
+        Student::where('id', $id)->delete();
+        
+        // $data = Student::find($id);
+        // $data->delete();
         return redirect()->route('students.index');
     }
 
