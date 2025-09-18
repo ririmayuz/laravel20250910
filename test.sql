@@ -65,6 +65,7 @@ VALUES
     (NULL, 'bob', NULL, NULL),
     (NULL, 'cat', NULL, NULL);
 
+---
 SELECT
     ProductID,
     ProductName,
@@ -73,6 +74,7 @@ FROM
     Products
     INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
 
+---
 SELECT
     students.id,
     students.name,
@@ -81,6 +83,7 @@ FROM
     students
     LEFT JOIN phones ON students.id = phones.student_id;
 
+----
 INSERT INTO
     `phones` (
         `id`,
@@ -93,3 +96,30 @@ VALUES
     (NULL, '1', '0911', NULL, NULL),
     (NULL, '2', '0922', NULL, NULL),
     (NULL, '3', '0933', NULL, NULL)
+
+---
+
+INSERT INTO
+    `hobbies` (
+        `id`,
+        `student_id`,
+        `hobby`,
+        `created_at`,
+        `updated_at`
+    )
+VALUES
+    (NULL, '1', 'PHP', NULL, NULL),
+    (NULL, '1', 'JS', NULL, NULL),
+    (NULL, '2', 'PHP', NULL, NULL),
+    (NULL, '3', 'HTML', NULL, NULL),
+    (NULL, '3', 'CSS', NULL, NULL),
+    (NULL, '3', 'LARAVEL', NULL, NULL)
+
+
+SELECT
+    students.id,
+    students.name,
+    hobbies.hobby
+FROM
+    students
+    LEFT JOIN hobbies ON students.id = hobbies.student_id;
